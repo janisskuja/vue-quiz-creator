@@ -34,8 +34,8 @@ const onRemoveOption = (id: number): void => {
 }
 
 const onOptionUpdated = (e: Event, option: Option): void => {
-  const target = e.target as HTMLInputElement;
-  option.value = target.value;
+  const target = e.target as HTMLInputElement
+  option.value = target.value
   emit('onOptionUpdated', option)
 }
 </script>

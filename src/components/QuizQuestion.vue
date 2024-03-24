@@ -42,7 +42,7 @@ import type Question from '../types/Question'
 
 import QuestionMultiple from './QuestionMultiple.vue'
 import QuestionLikert from './QuestionLikert.vue'
-import type Option from '@/types/Option';
+import type Option from '@/types/Option'
 
 const _generateRandomId = (): number => {
   return Math.floor(Math.random() * 1000000)
@@ -86,9 +86,9 @@ const handleOptionRemoved = (id: number): void => {
   const question = props.question
 
   if (question.options) {
-    question.options = question.options.filter((option: Option) => option.id !== id);
+    question.options = question.options.filter((option: Option) => option.id !== id)
   }
-  
+
   emit('onUpdated', question)
 }
 
@@ -96,15 +96,17 @@ const handleOptionUpdated = (updatedOption: Option): void => {
   const question = props.question
 
   if (question.options) {
-    const optionIndex = question.options.findIndex((option: Option) => option.id === updatedOption.id)
-    question.options[optionIndex] = updatedOption;
+    const optionIndex = question.options.findIndex(
+      (option: Option) => option.id === updatedOption.id
+    )
+    question.options[optionIndex] = updatedOption
   }
-  
+
   emit('onUpdated', question)
 }
 
 const handleQuestionTextChange = (e: Event): void => {
-  const target = e.target as HTMLInputElement;
+  const target = e.target as HTMLInputElement
   const question = props.question
   question.text = target.value
 
